@@ -1,0 +1,217 @@
+/* Custom styles for Provider Login */
+.provider-login-container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.provider-login-paper {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.provider-login-header {
+  position: relative;
+}
+
+.provider-login-header::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #1976d2, #42a5f5);
+  border-radius: 2px;
+}
+
+.provider-login-form {
+  position: relative;
+}
+
+.provider-login-form .MuiTextField-root {
+  margin-bottom: 16px;
+}
+
+.provider-login-form .MuiTextField-root .MuiOutlinedInput-root {
+  transition: all 0.3s ease;
+}
+
+.provider-login-form .MuiTextField-root .MuiOutlinedInput-root:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.provider-login-form .MuiTextField-root .MuiOutlinedInput-root.Mui-focused {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(25, 118, 210, 0.2);
+}
+
+.provider-login-button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.provider-login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(25, 118, 210, 0.3);
+}
+
+.provider-login-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.provider-login-button:hover::before {
+  left: 100%;
+}
+
+.provider-login-checkbox {
+  transition: all 0.2s ease;
+}
+
+.provider-login-checkbox:hover {
+  transform: scale(1.05);
+}
+
+.provider-login-link {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.provider-login-link:hover {
+  color: #1976d2;
+  transform: translateY(-1px);
+}
+
+.provider-login-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #1976d2;
+  transition: width 0.3s ease;
+}
+
+.provider-login-link:hover::after {
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .provider-login-container {
+    padding: 10px;
+  }
+  
+  .provider-login-paper {
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .provider-login-form .MuiTextField-root {
+    margin-bottom: 12px;
+  }
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.provider-login-loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Success animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.provider-login-success {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Error shake animation */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.provider-login-error {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Accessibility improvements */
+.provider-login-container:focus-within {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .provider-login-paper {
+    background: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .provider-login-form .MuiTextField-root .MuiOutlinedInput-root {
+    border: 2px solid #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .provider-login-form .MuiTextField-root .MuiOutlinedInput-root,
+  .provider-login-button,
+  .provider-login-checkbox,
+  .provider-login-link {
+    transition: none;
+  }
+  
+  .provider-login-button::before {
+    display: none;
+  }
+  
+  .provider-login-loading,
+  .provider-login-success,
+  .provider-login-error {
+    animation: none;
+  }
+} 
